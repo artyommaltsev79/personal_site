@@ -67,11 +67,12 @@ header .lbl{margin-bottom:12px}
 .kicker::before{content:'';width:44px;height:2px;background:var(--stamp);flex:none}
 h1.tagline{
   font-weight:900;text-transform:uppercase;
-  font-size:clamp(30px,5.4vw + 12px,72px);line-height:1.02;letter-spacing:-.01em;
+  font-size:clamp(25px,4.5vw + 10px,60px);line-height:1.04;letter-spacing:-.01em;
 }
 .subline{margin-top:16px;font-size:clamp(16px,1.7vw,21px);font-weight:500;color:var(--ink-soft)}
-.hero p.lead{margin-top:26px;max-width:52ch;font-size:17px;color:var(--ink-soft)}
+.hero p.lead{margin-top:26px;max-width:104ch;font-size:17px;color:var(--ink-soft)}
 .hero p.lead b{color:var(--ink)}
+.hero p.lead + .lead{margin-top:14px}
 /* фото как объект чертежа */
 .photo-obj{position:relative;padding:32px 14px 14px;margin-right:18px}
 .photo-obj img{
@@ -87,24 +88,29 @@ h1.tagline{
 .photo-obj .cap{margin-top:8px;text-align:right}
 /* ── лента данных ── */
 .datastrip{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--hair-strong)}
-.datastrip .cell{padding:18px 16px 20px;border-right:1px solid var(--hair)}
+.datastrip .cell{padding:18px 16px 20px;border-right:1px solid var(--hair);display:flex;flex-direction:column}
 .datastrip .cell:first-child{border-left:1px solid var(--hair-strong)}
 .datastrip .cell:last-child{border-right:1px solid var(--hair-strong)}
 .datastrip .num{font-weight:800;font-size:clamp(24px,2.6vw,36px);letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
 .datastrip .num small{font-weight:600;font-size:.5em;color:var(--ink-soft);display:block;margin-top:4px;letter-spacing:.06em}
+.datastrip .more{margin-top:auto;align-self:flex-end;font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none}
+.datastrip .more:hover{color:var(--stamp)}
 /* ── секции ── */
 section{padding:clamp(40px,7vh,72px) 4px}
-.sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--hair-strong);padding-bottom:12px;margin-bottom:32px}
+.sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--hair-strong);padding-bottom:12px;margin-bottom:26px}
 .sec-head .idx{font-family:var(--mono);color:var(--stamp);font-size:12px;font-weight:700}
 .sec-head h2{font-weight:800;text-transform:uppercase;font-size:clamp(20px,2.4vw,30px);letter-spacing:.02em}
 .sec-head .tag{margin-left:auto}
 /* проекты */
 .proj{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:26px 0;border-bottom:1px dashed var(--hair)}
 .proj:last-of-type{border-bottom:0}
+.proj:first-of-type{padding-top:0}
 .proj .pid{font-family:var(--mono);font-weight:700;font-size:15px;color:var(--stamp)}
 .proj .pid small{display:block;font-weight:400;color:var(--ink-soft);font-size:13px;margin-top:6px;letter-spacing:.08em}
 .proj h3{font-weight:800;font-size:clamp(19px,2.2vw,26px);line-height:1.15}
-.proj p{margin-top:10px;color:var(--ink-soft);max-width:68ch}
+.proj p{margin-top:10px;color:var(--ink-soft);max-width:136ch}
+.proj p a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair-strong);text-underline-offset:3px}
+.proj p a:hover{color:var(--stamp);text-decoration-color:var(--stamp)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .chip{font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--hair-strong);color:var(--ink-soft)}
 .chip.hot{border-color:var(--stamp);color:var(--stamp)}
@@ -112,10 +118,10 @@ section{padding:clamp(40px,7vh,72px) 4px}
 .status::before{content:'';width:9px;height:9px;background:var(--stamp)}
 /* раскрываемая спецификация проекта */
 .proj details.spec{margin-top:16px;border:1px solid var(--hair-strong);background:rgba(228,225,214,.5)}
-.proj details.spec summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.proj details.spec summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:#DED9CB}
 .proj details.spec summary::-webkit-details-marker{display:none}
-.proj details.spec summary::after{content:'+';margin-left:auto;font-weight:700;font-size:15px;color:var(--stamp)}
-.proj details.spec[open] summary::after{content:'−'}
+.proj details.spec summary::before{content:'▸';font-size:36px;line-height:1;color:var(--stamp);flex:none;transform:translateY(-3px)}
+.proj details.spec[open] summary::before{content:'▾'}
 .proj details.spec summary:hover,.proj details.spec[open] summary{color:var(--stamp)}
 .spec dl{display:grid;grid-template-columns:96px 1fr;gap:12px 16px;padding:16px 14px;border-top:1px solid var(--hair-strong);margin:0}
 .spec dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--stamp);padding-top:2px}
@@ -127,12 +133,12 @@ section{padding:clamp(40px,7vh,72px) 4px}
 /* опыт как таблица учёта */
 table.exp{width:100%;border-collapse:collapse}
 table.exp td{padding:16px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
-table.exp tr:first-child td{border-top:1px solid var(--hair-strong)}
 table.exp .yrs{font-family:var(--mono);font-size:12px;letter-spacing:.06em;white-space:nowrap;color:var(--ink-soft);width:150px}
 table.exp .org{font-weight:700;width:34%}
 table.exp .role{color:var(--ink-soft)}
 /* о себе */
-.about p{max-width:72ch;color:var(--ink-soft);font-size:17px}
+.about p{max-width:144ch;color:var(--ink-soft);font-size:17px}
+.about p + p{margin-top:14px}
 .about p b{color:var(--ink)}
 /* ── футер-штамп ── */
 footer{
@@ -182,16 +188,18 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
   .lbl{font-size:12.5px}
   .tech-groups .lbl{font-size:15px}
   .photo-obj .dim{font-size:11px}
-  h1.tagline{font-size:clamp(40px,4.5vw,84px)}
+  h1.tagline{font-size:clamp(33px,3.75vw,70px)}
   .subline{font-size:clamp(18px,1.9vw,24px)}
   .hero p.lead{font-size:18px}
+  .hero p.lead + .lead{margin-top:12px}
   .datastrip .num{font-size:clamp(30px,2.2vw,44px)}
+  .datastrip .more{font-size:14px}
   .sec-head .idx{font-size:13.5px}
   .chip{font-size:12.5px}
   .status{font-size:12.5px}
   .proj .pid{font-size:17px}
   .proj .pid small{font-size:14px}
-  .proj details.spec summary{font-size:12.5px}
+  .proj details.spec summary{font-size:13px}
   .spec dt{font-size:12.5px}
   .spec dd{font-size:16.5px}
   table.exp .yrs{font-size:13.5px}
@@ -201,9 +209,9 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
 /* сверхширокие мониторы (2000+ / 2K full) */
 @media (min-width:2000px){
   body{font-size:18px}
-  h1.tagline{font-size:clamp(44px,5vw,104px)}
+  h1.tagline{font-size:clamp(36px,4.2vw,86px)}
   .subline{font-size:28px}
-  .hero p.lead{font-size:20px;max-width:56ch}
+  .hero p.lead{font-size:20px;max-width:112ch}
   .lbl{font-size:14px}
   header .code{font-size:15px}
   header nav{gap:8px}
@@ -220,11 +228,12 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
   .proj p{font-size:18px}
   .spec dd{font-size:18px}
   .spec dt{font-size:14px}
-  .proj details.spec summary{font-size:14px}
+  .proj details.spec summary{font-size:15px}
   table.exp .yrs{font-size:15px}
   table.exp td{padding:18px 16px}
   .about p{font-size:20px}
   .datastrip .num{font-size:clamp(36px,2.2vw,56px)}
+  .datastrip .more{font-size:16px}
   footer .big{font-size:clamp(26px,2.4vw,40px)}
   footer .contacts{font-size:18px}
   .tech-groups{grid-template-columns:repeat(3,1fr)}
@@ -248,8 +257,8 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
       <h1 class="tagline">Автоматизация рутины и сложных задач для вашего бизнеса</h1>
       <p class="subline">проектирую и довожу до промышленной эксплуатации</p>
       <p class="lead"><b>Более 25 лет в коммерческой разработке ПО для задач бизнеса</b> —
-      от десктопных приложений и служб до распределённых систем обработки документов.
-      С 2025 года — <b>ИИ-помощники и агенты</b> в разработке и тестировании
+      от десктопных приложений и служб до распределённых систем обработки документов.</p>
+      <p class="lead">С 2025 года — <b>ИИ-помощники и агенты</b> в разработке и тестировании
       как часть повседневного процесса.</p>
     </div>
     <figure class="photo-obj">
@@ -262,10 +271,10 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
   </div>
 
   <div class="datastrip">
-    <div class="cell"><div class="lbl">Коммерческая разработка</div><div class="num">25+ <small>лет</small></div></div>
-    <div class="cell"><div class="lbl">Платформа · пиковая нагрузка</div><div class="num">1&nbsp;000&nbsp;000 <small>док/сутки</small></div></div>
-    <div class="cell"><div class="lbl">Печать АвтоВАЗ</div><div class="num">~250 <small>устройств</small></div></div>
-    <div class="cell"><div class="lbl">ИПД · проверка 100–300 стр.</div><div class="num">&lt;1 <small>мин</small></div></div>
+    <div class="cell"><div class="lbl">Коммерческая разработка · международный рынок</div><div class="num">25+ <small>лет</small></div><a class="more" href="#about">подробнее</a></div>
+    <div class="cell"><div class="lbl">Платформа · подтверждённая нагрузка в работе у клиента</div><div class="num">1&nbsp;000&nbsp;000 <small>док/сутки</small></div><a class="more" href="#p01">подробнее</a></div>
+    <div class="cell"><div class="lbl">Печать АвтоВАЗ</div><div class="num">~250 <small>устройств</small></div><a class="more" href="#p03">подробнее</a></div>
+    <div class="cell"><div class="lbl">ИПД · проверка 100–300 стр.</div><div class="num">&lt;1 <small>мин</small></div><a class="more" href="#p02">подробнее</a></div>
   </div>
 
   <section id="tech">
@@ -278,16 +287,20 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
         <div class="chips"><span class="chip">C#/.NET 8 и 10</span><span class="chip">ASP.NET Core</span><span class="chip">Groovy</span><span class="chip">Python</span><span class="chip">JS</span><span class="chip">WPF</span><span class="chip">WinForms</span><span class="chip">async/await</span><span class="chip">многопоточность</span><span class="chip">RegEx</span></div>
       </div>
       <div class="tg">
+        <div class="lbl">ИИ</div>
+        <div class="chips"><span class="chip hot">ИИ-агенты</span><span class="chip">Claude Code</span><span class="chip">Codex</span><span class="chip">ZCode</span><span class="chip">CloudCLI</span><span class="chip">Open Code</span><span class="chip">Ollama</span><span class="chip">Gemma</span><span class="chip">Qwen</span><span class="chip">Kimi</span><span class="chip">Stable Diffusion</span><span class="chip">Whisper</span><span class="chip">LLM</span><span class="chip">NER · DeepPavlov</span><span class="chip">OpenCV</span><span class="chip">нечёткое сравнение текста</span><span class="chip">YandexVision</span></div>
+      </div>
+      <div class="tg">
+        <div class="lbl">Работа с Документами</div>
+        <div class="chips"><span class="chip">FineReader Engine</span><span class="chip">FlexiCapture</span><span class="chip">OCR</span><span class="chip">Tesseract</span><span class="chip">Docling</span><span class="chip">Open XML SDK</span><span class="chip">парсинг и анализ данных</span><span class="chip">сложные формы</span><span class="chip">классификация документов</span><span class="chip">потоковая обработка</span><span class="chip">DOCX</span><span class="chip">XLSX</span><span class="chip">PDF</span><span class="chip">ODT</span><span class="chip">CSV</span></div>
+      </div>
+      <div class="tg">
         <div class="lbl">Данные</div>
         <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">Tantor</span><span class="chip">MS SQL Server</span><span class="chip">MySQL</span><span class="chip">партиционирование</span><span class="chip">хранимые процедуры</span><span class="chip">оптимизация БД</span><span class="chip">план выполнения</span><span class="chip">SQL без ORM</span><span class="chip">XML</span><span class="chip">JSON</span></div>
       </div>
       <div class="tg">
         <div class="lbl">Интеграции и транспорт</div>
-        <div class="chips"><span class="chip">RabbitMQ</span><span class="chip">REST API</span><span class="chip">SOAP</span><span class="chip">SNMP</span><span class="chip">SMTP/POP3/IMAP</span><span class="chip">Telegram-боты</span><span class="chip">LPR/IPP/RAW</span><span class="chip">TCP-сокеты</span><span class="chip">SharePoint</span><span class="chip">Консультант+</span><span class="chip">Кодекс</span><span class="chip">Robin RPA</span><span class="chip">WebDAV</span></div>
-      </div>
-      <div class="tg">
-        <div class="lbl">Документы и ИИ</div>
-        <div class="chips"><span class="chip hot">ИИ-агенты</span><span class="chip">LLM</span><span class="chip">NER · DeepPavlov</span><span class="chip">FineReader Engine</span><span class="chip">FlexiCapture</span><span class="chip">OCR</span><span class="chip">Tesseract</span><span class="chip">YandexVision</span><span class="chip">Docling</span><span class="chip">Open XML SDK</span><span class="chip">нечёткое сравнение текста</span><span class="chip">парсинг и анализ данных</span><span class="chip">сложные формы</span><span class="chip">классификация документов</span><span class="chip">потоковая обработка</span><span class="chip">DOCX</span><span class="chip">XLSX</span><span class="chip">PDF</span><span class="chip">ODT</span><span class="chip">CSV</span></div>
+        <div class="chips"><span class="chip">RabbitMQ</span><span class="chip">REST API</span><span class="chip">SOAP</span><span class="chip">SNMP</span><span class="chip">SMTP/POP3/IMAP</span><span class="chip">Telegram-боты</span><span class="chip">LPR/IPP/RAW</span><span class="chip">TCP-сокеты</span><span class="chip">SharePoint</span><span class="chip">Консультант+</span><span class="chip">Кодекс</span><span class="chip">Robin RPA</span><span class="chip">WebDAV</span><span class="chip">FTP/SFTP</span></div>
       </div>
       <div class="tg">
         <div class="lbl">Инфраструктура</div>
@@ -298,28 +311,30 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
 
   <section id="projects">
     <div class="sec-head">
-      <span class="idx">РАЗД. 02</span><h2>Значимые проекты</h2><span class="tag lbl">перечень обязательный</span>
+      <span class="idx">РАЗД. 02</span><h2>Последние интересные проекты</h2><span class="tag lbl">перечень для ознакомления</span>
     </div>
-    <article class="proj">
-      <div class="pid">P-01<small>с 2014<br>автор, архитектор</small></div>
+    <article class="proj" id="p01">
+      <div class="pid">P-01<small>автор, архитектор</small></div>
       <div>
         <h3>ESV Platform. Платформа распределённой обработки документов</h3>
-        <p>Кластер узлов с балансировщиком нагрузки, задачи и workflow в БД на выбор
-        (MS SQL, PostgreSQL, Tantor), контроль heartbeat, горячий резерв. До 1 000 000 документов в сутки.</p>
+        <p>ESV Platform зарегистрирована в реестре Российского ПО
+        (<a href="https://esv-platform.ru/" target="_blank" rel="noopener">https://esv-platform.ru/</a>).
+        Кластер узлов с балансировщиком нагрузки, задачи и workflow в БД на выбор
+        (MS&nbsp;SQL, PostgreSQL, Tantor), контроль heartbeat, горячий резерв. До 1&nbsp;000&nbsp;000 документов в сутки.</p>
         <div class="chips"><span class="chip">C#/.NET</span><span class="chip">PostgreSQL</span><span class="chip">Tantor</span><span class="chip">MS SQL Server</span><span class="chip">Windows / Linux</span><span class="chip">потоковая обработка</span><span class="chip">классификация документов</span><span class="chip">многопоточность</span><span class="chip">балансировка нагрузки</span><span class="chip">heartbeat</span><span class="chip">горячий резерв</span></div>
         <div class="status">статус: в промышленной эксплуатации</div>
         <details class="spec">
           <summary>спецификация · запрос / решение / результат</summary>
           <dl>
             <dt>Запрос</dt><dd>Непрерывная потоковая обработка документов разных видов: счета, договоры, пакеты документов, сканы, чертежи и другие. Приём из различных источников — сетевые папки, почта, FTP, WebDAV, SharePoint, брокеры сообщений. Полный цикл обработки: распознавание, классификация, поиск и извлечение данных, экспорт результатов в требуемые форматы. Ключевые требования — отказоустойчивость и масштабируемость под переменную нагрузку.</dd>
-            <dt>Решение</dt><dd>Распределённый кластер на .NET с БД на выбор — MS SQL, PostgreSQL, Tantor. Ядро — балансировщик нагрузки с резервированием (один активен, остальные ждут): он же назначает задачи узлам по мере движения документа по workflow — на узел, где есть нужный модуль и меньше очередь. Узел обработки — процесс-менеджер с пулом модулей; задачи вычитываются последовательно или параллельно, в зависимости от того, поддерживает ли модуль многопоточную обработку. Модули трёх типов: входные — регистрируют документ в БД для нужного workflow; обработки — выполняют стадии и передают документ дальше по маршруту; сервисные — фоновые задачи без привязки к workflow. Модули импорта можно резервировать. Система кроссплатформенная: узлы работают на Windows и любом Linux с .NET; для стадий ручной проверки есть веб-модуль верификации.</dd>
-            <dt>Результат</dt><dd>В разработке с 2014 года, в промышленной эксплуатации — с 2015-го. Пиковая нагрузка — до 1 000 000 документов в сутки. Система постоянно улучшается и дополняется новым функционалом.</dd>
+            <dt>Решение</dt><dd>Распределённый кластер на .NET с БД на выбор — MS&nbsp;SQL, PostgreSQL, Tantor. Ядро — балансировщик нагрузки с резервированием (один активен, остальные ждут): он же назначает задачи узлам по мере движения документа по workflow — на узел, где есть нужный модуль и меньше очередь. Узел обработки — процесс-менеджер с пулом модулей; задачи вычитываются последовательно или параллельно, в зависимости от того, поддерживает ли модуль многопоточную обработку. Модули трёх типов: входные — регистрируют документ в БД для нужного workflow; обработки — выполняют стадии и передают документ дальше по маршруту; сервисные — фоновые задачи без привязки к workflow. Модули импорта можно резервировать. Система кроссплатформенная: узлы работают на Windows и любом Linux с .NET; также систему можно развернуть в docker контейнерах; для стадий ручной проверки есть веб-модуль верификации.</dd>
+            <dt>Результат</dt><dd>В разработке с 2014 года, в промышленной эксплуатации — с 2015-го. Подтверждённая в работе нагрузка — до 1&nbsp;000&nbsp;000 документов в сутки. Система постоянно улучшается и дополняется новым функционалом.</dd>
           </dl>
         </details>
       </div>
     </article>
-    <article class="proj">
-      <div class="pid">P-02<small>с 2023<br>архитектор, разработчик</small></div>
+    <article class="proj" id="p02">
+      <div class="pid">P-02<small>архитектор, разработчик</small></div>
       <div>
         <h3>ДИТ Москвы. Система интеллектуальной проверки документов (ИПД)</h3>
         <p>Конвейер на Astra Linux: документ на 100–300 страниц проверяется обычно меньше чем за минуту.
@@ -330,26 +345,28 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
           <summary>спецификация · запрос / решение / результат</summary>
           <dl>
             <dt>Запрос</dt><dd>Две большие задачи. Первая — в больших документах находить все упоминания нормативных правовых и технических актов (НПА/НТА), проверять их корректность и актуальность, выполнять дополнительные проверки формулировок и оформления; результат — детальный и сводный отчёты по документу. Вторая — сравнение документов одного проекта (ТЗ, ЧТЗ, ПМИ, заявки, протоколы) между собой на консистентность и корректность, а также проверка уникальности ТЗ и ЧТЗ разных проектов; по каждому сценарию — детальные и сводный отчёты о найденных несоответствиях, дубликатах и пропусках.</dd>
-            <dt>Решение</dt><dd>Отдельная версия платформы распределённой обработки документов со своими модулями. Кластер на Astra Linux. Поиск сущностей — NER на DeepPavlov; анализ структуры документа и последующая работа с ним — на Open XML SDK. Детальные отчёты — проблемные участки выделяются цветом прямо в исходном документе, с комментариями. Сравнение структур и содержимого — авторские алгоритмы нечёткого поиска либо LLM там, где нужно сравнить смысл при сильно различающихся формулировках. Для пользователей — веб-фронтенд и REST API.</dd>
+            <dt>Решение</dt><dd>Отдельная версия платформы распределённой обработки документов со своими модулями. Кластер на Astra Linux. Поиск сущностей — NER на DeepPavlov; проверка актуальности НПА/НТА во внешних справочно-информационных системах Кодекс и Консультант+. Анализ структуры документа и последующая работа с ним — на Open XML SDK. Детальные отчёты — проблемные участки выделяются цветом прямо в исходном документе, с комментариями. Сравнение структур и содержимого — авторские алгоритмы нечёткого поиска либо LLM там, где нужно сравнить смысл при сильно различающихся формулировках. Для пользователей — веб-фронтенд и REST API.</dd>
             <dt>Результат</dt><dd>Типовой сценарий — документ на 100–300 страниц проверяется меньше чем за минуту: NER работает на GPU, активное участие LLM не требуется. Особо сложные сценарии анализа могут занимать 5–10 минут.</dd>
           </dl>
         </details>
       </div>
     </article>
-    <article class="proj">
-      <div class="pid">P-03<small>2024–2025<br>архитектор, разработчик</small></div>
+    <article class="proj" id="p03">
+      <div class="pid">P-03<small>архитектор, разработчик</small></div>
       <div>
         <h3>АвтоВАЗ. Система гарантированной печати</h3>
-        <p>~250 устройств: RabbitMQ с очередью на каждое, SNMP-контроль до и после печати,
-        печать по LPR/IPP/RAW, этикетки с RFID.</p>
-        <div class="chips"><span class="chip">RabbitMQ</span><span class="chip">PostgreSQL</span><span class="chip">партиционирование</span><span class="chip">JSON</span><span class="chip">SNMP</span><span class="chip">LPR/IPP/RAW</span><span class="chip">RFID</span><span class="chip">Deckhouse</span><span class="chip">WPF</span></div>
+        <p>~250 устройств печати (лазерные и термо-принтеры, этикетки с RFID, визуализация на телевизор)
+        с поддержкой различных протоколов печати на низком уровне. Брокер RabbitMQ с раздельными очередями
+        на каждое устройство, SNMP-контроль до и после печати. Мониторинг состояния отдельных устройств
+        и системы в целом.</p>
+        <div class="chips"><span class="chip">RabbitMQ</span><span class="chip">Postgres Pro</span><span class="chip">партиционирование</span><span class="chip">JSON</span><span class="chip">SNMP</span><span class="chip">LPR/IPP/RAW</span><span class="chip">RFID</span><span class="chip">Deckhouse</span><span class="chip">WPF</span></div>
         <div class="status">статус: сдано на конвейер</div>
         <details class="spec">
           <summary>спецификация · запрос / решение / результат</summary>
           <dl>
-            <dt>Запрос</dt><dd>Замена существующего CUPS-сервера. В производственных линиях критичны гарантия печати и чёткая последовательность заданий — прежнее решение этого не обеспечивало. Второй ключевой критерий — скорость обработки: не ниже 60 заданий печати в минуту на разные устройства.</dd>
-            <dt>Решение</dt><dd>Задания формируются как шаблоны с данными в JSON и через RabbitMQ попадают в общую очередь, где диспетчер распределяет их по узлам обработки. Узлы готовят бинарные данные под конкретное устройство печати (отправка по LPR/IPP/RAW) и передают их в отдельную очередь этого устройства. Узел печати — многопроцессное многопоточное решение — мониторит очереди всех устройств, опрашивает их по SNMP до готовности и проверяет, что задание напечаталось, по нескольким критериям; только после этого печать считается успешной. Есть резервные устройства и перенос очереди печати между устройствами, отдельные очереди команд для управления. Всё регистрируется и логируется в PostgreSQL — для таблиц с миллионами записей включено партиционирование. Поддерживаются разные модели и типы устройств: лазерники, термопринтеры. Сбои нотифицируются в управляющее приложение и на почту. Система собрана и работает в Deckhouse; в комплекте — WPF-приложение для тестирования, веб-админка и вывод заданий печати на телевизор.</dd>
-            <dt>Результат</dt><dd>Нагрузочное тестирование с запасом покрывает требования по скорости обработки и печати. Система сдана на конвейер и работает в промышленной эксплуатации.</dd>
+            <dt>Запрос</dt><dd>Импортозамещение существующего сервера печати. В производственных линиях критичны гарантия печати и чёткая последовательность заданий — прежнее решение этого не обеспечивало. Второй ключевой критерий — скорость обработки: не ниже 60 заданий печати в минуту на разные устройства.</dd>
+            <dt>Решение</dt><dd>Задания формируются как шаблоны с данными в JSON и через RabbitMQ попадают в общую очередь, где диспетчер распределяет их по узлам обработки. Узлы готовят бинарные данные под конкретное устройство печати (отправка по LPR/IPP/RAW) и передают их в отдельную очередь этого устройства. Узел печати — многопроцессное многопоточное решение — мониторит очереди всех устройств, опрашивает их по SNMP до готовности и проверяет, что задание напечаталось, по нескольким критериям; только после этого печать считается успешной. Есть резервные устройства и перенос очереди печати между устройствами, отдельные очереди команд для управления. База данных на Postgres Pro хранит детальную информацию обо всех заданиях печати и оптимизирована под быструю работу с миллионами записей для построения отчетов. Поддерживаются разные модели и типы устройств: лазерники, термопринтеры. Сбои в работе устройств или компонентов регистрируются и отправляются в виде сообщений на почту ответственным лицам. Узлы системы спроектированы для работы в docker контейнерах и работают под управлением отечественной Kubernetes-платформы Deckhouse. В комплекте — WPF-приложение для тестирования, веб-админка и вывод заданий печати на телевизор.</dd>
+            <dt>Результат</dt><dd>Система работает с высокой степенью отказоустойчивости в течение нескольких лет и с запасом покрывает требования по скорости обработки и печати.</dd>
           </dl>
         </details>
       </div>
@@ -362,7 +379,7 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
     </div>
     <table class="exp">
       <tr><td class="yrs">01.2023 — наст. вр.</td><td class="org">Частная практика (ИП)</td><td class="role">Ведущий разработчик C#/.NET, архитектор — заказная разработка для промышленных и государственных заказчиков</td></tr>
-      <tr><td class="yrs">01.2019 — 12.2022</td><td class="org">ABBYY, Новосибирский филиал</td><td class="role">Руководитель группы сопровождения инфраструктурных сервисов; с 09.2019 — директор филиала (по совместительству)</td></tr>
+      <tr><td class="yrs">01.2019 — 12.2022</td><td class="org">ABBYY, Новосибирский филиал</td><td class="role">Руководитель группы сопровождения инфраструктурных сервисов; с 09.2019 — директор филиала</td></tr>
       <tr><td class="yrs">03.2001 — 12.2018</td><td class="org">АТАПИ Софтвер (партнёр ABBYY)</td><td class="role">От стажёра до руководителя отдела исследований и разработок (2010–2018)</td></tr>
     </table>
   </section>
@@ -371,9 +388,11 @@ footer .contacts{margin-top:18px;display:grid;gap:8px;font-family:var(--mono);fo
     <div class="sec-head">
       <span class="idx">РАЗД. 04</span><h2>О себе</h2><span class="tag lbl">примечания к листу</span>
     </div>
-    <p>НГТУ, 2001, АВТФ («Автоматика и управление в технических системах»).
-    Английский — C1. Сертификаты: Microsoft MCPD (.NET Framework), MCP (MS SQL Server), Naumen Service Desk.
-    Вне работы — кино, кулинария, книги, велосипед; <b>МС по стрельбе из лука</b> и
+    <p><b>Образование:</b> Лицей Информационных Технологий, 1996. НГТУ, АВТФ
+    («Автоматика и управление в технических системах»), 2001.</p>
+    <p><b>Языки:</b> Русский (родной), Английский (C1).</p>
+    <p><b>Сертификаты:</b> Microsoft MCPD (.NET Framework), MCP (MS&nbsp;SQL&nbsp;Server), Naumen Service Desk.</p>
+    <p><b>Вне работы:</b> кино, кулинария, книги, велосипед; <b>МС по стрельбе из лука</b> и
     <b>КМС по пауэрлифтингу</b> — привычка к точности и методичной нагрузке.</p>
   </section>
 
